@@ -17,6 +17,8 @@ import {
 } from '@chakra-ui/react'
 const Blog = () => {
     const [list, setList] = useState([]);
+    const [title, setTitle] = useState(null);
+    const [description, setDescription] = useState(null);
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -28,10 +30,16 @@ const Blog = () => {
         return blogList;
     }
 
+    const popUp = (item) => {
+        setTitle(item.title);
+        setDescription(item.description);
+        onOpen();
+    } 
+
     const renderItems = list.map((item) => {
         return (
             <ul className="blog-area">
-                <li className="blog-item" onClick={onOpen}>
+                <li className="blog-item" onClick={() => popUp(item)}>
                     <img src={item.image}/>
                     <label>{item.title}</label>
                 </li>
@@ -53,17 +61,18 @@ const Blog = () => {
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                <ModalHeader>Modal Title</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                    abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc 
-                </ModalBody>
+                    <ModalHeader>{title}</ModalHeader>
+                    <ModalCloseButton />
 
-                <ModalFooter>
-                    <Button colorScheme='blue' mr={3} onClick={onClose}>
-                    Close
-                    </Button>
-                </ModalFooter>
+                    <ModalBody>
+                        {description}
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button colorScheme='blue' mr={3} onClick={onClose}>
+                        Close
+                        </Button>
+                    </ModalFooter>
                 </ModalContent>
             </Modal>
         </div>
