@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from "config/firebase";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
@@ -28,23 +28,27 @@ const Blog = () => {
         return blogList;
     }
 
-    let listItem = list.map(item => {
+    const renderItems = list.map((item) => {
         return (
-            <li onClick={onOpen}>{item.title}</li>
-        )
+            <ul>
+                <li className="item" onClick={onOpen}>
+                    <p>{item.title}</p>
+                </li>
+            </ul>
+        );
     });
 
-    const allBlogs = getBlogs(db).then(res => {
-        if (res) {
-            setList(res)
-        }
-    }).catch(error => console.log(error));
+    useEffect(() => {
+        getBlogs(db).then(res => {
+            if (res) {
+                setList(res)
+            }
+        }).catch(error => console.log(error));
+    }, []);
 
     return (
         <div>
-            <ul>
-                {listItem}
-            </ul>
+            {renderItems}
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
