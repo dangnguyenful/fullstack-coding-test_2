@@ -12,6 +12,7 @@ const SignUp = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         alert("SIGNUP SCCESSS ! Please use" + user.email + "to sign in !");
+        window.location.href = "/sign-in";
       })
       .catch((error) => {
         const errorCode = error.code;
