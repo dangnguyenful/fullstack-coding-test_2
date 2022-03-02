@@ -20,7 +20,7 @@ const SignUp = () => {
       </div>
       
       <div className="container signin">
-        <p>Already have an account? <a href="#">Sign in</a>.</p>
+        <p>Already have an account? <a href="/sign-in">Sign in</a>.</p>
       </div>
     </div>
   );
