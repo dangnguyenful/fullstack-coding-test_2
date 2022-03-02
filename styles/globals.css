@@ -143,3 +143,44 @@ a {
 .blog-area img {
   width: 200px;
 }
+
+
+.container-signup {
+  padding: 16px;
+  background-color: white;
+}
+.container-signup input[type=text], .container-signup input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+.container-signup input[type=text]:focus, .container-signup input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.container-signup hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.container-signup .registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.container-signup .registerbtn:hover {
+  opacity: 1;
+}
+.container-signup a {
+  color: dodgerblue;
+}
+.signin {
+  text-align: center;
+}
