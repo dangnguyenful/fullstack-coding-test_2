@@ -30,9 +30,10 @@ const Blog = () => {
 
     const renderItems = list.map((item) => {
         return (
-            <ul>
-                <li className="item" onClick={onOpen}>
-                    <p>{item.title}</p>
+            <ul className="blog-area">
+                <li className="blog-item" onClick={onOpen}>
+                    <img src={item.image}/>
+                    <label>{item.title}</label>
                 </li>
             </ul>
         );
