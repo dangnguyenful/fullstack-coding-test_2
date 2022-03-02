@@ -13,7 +13,6 @@ import {
     ModalCloseButton,
     Button,
     useDisclosure,
-    useTheme
 } from '@chakra-ui/react'
 const Blog = () => {
     const [list, setList] = useState([]);
