@@ -13,6 +13,7 @@ const SignUp = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         localStorage.setItem('authID', user.uid);
+        localStorage.setItem('email', user.email);
         alert("SIGNUP SCCESSS ! Please use" + user.email + "to sign in !");
         window.location.href = "/sign-in";
       })

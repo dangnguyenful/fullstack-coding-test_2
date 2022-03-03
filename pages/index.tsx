@@ -7,14 +7,19 @@ import React, { useRef } from "react";
 
 const Home = () => {
   const ref = React.createRef();
+  const authID = localStorage.getItem('authID');
+  const emailUser = localStorage.getItem('email');
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (typeof ref.current === 'function') ref.current(e.target.value)
   };
   return (
     <Container className={styles.container}>
+      {authID && emailUser ? <div>Hello, {emailUser}</div> : null}
+      <br/>
+      <br/>
+      <br/>
       <div>
         <Link href='/sign-up'>Sign-up</Link>&nbsp;&nbsp;&nbsp;&nbsp;
-        <Link href='/sign-in'>Sign-in</Link>&nbsp;&nbsp;&nbsp;&nbsp;
         <Link href='/blog'>Blog</Link>
       </div>
       <Head>

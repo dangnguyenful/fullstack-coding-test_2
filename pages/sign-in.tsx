@@ -13,6 +13,7 @@ const SignIn = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           localStorage.setItem('authID', user.uid);
+          localStorage.setItem('email', user.email);
           alert("SIGNIN SCCESSS !");
           window.location.href = '/';
         })
@@ -41,6 +42,10 @@ const SignIn = () => {
           <button type="submit" className="registerbtn">Sign in</button>
         </div>
       </form>
+
+      <div className="container signin">
+        <p>Don't have an account yet? <a href="/sign-up">Sign up</a>.</p>
+      </div>
     </div>
   );
 };
