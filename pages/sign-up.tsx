@@ -12,6 +12,7 @@ const SignUp = () => {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        localStorage.setItem('authID', user.uid);
         alert("SIGNUP SCCESSS ! Please use" + user.email + "to sign in !");
         window.location.href = "/sign-in";
       })

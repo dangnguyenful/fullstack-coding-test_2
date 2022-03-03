@@ -1,20 +1,7 @@
 import { Link } from "@chakra-ui/react";
 import { firebaseConfig } from "config/firebase";
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-// const auth = getAuth();
-// signInWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in 
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   });
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const SignIn = () => {
   const signIn = (event) => {
     const email = event.target[0].value;
@@ -25,8 +12,9 @@ const SignIn = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          localStorage.setItem('authID', user.uid);
           alert("SIGNIN SCCESSS !");
+          window.location.href = '/';
         })
         .catch((error) => {
           const errorCode = error.code;
