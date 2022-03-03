@@ -13,6 +13,7 @@ import {
     ModalCloseButton,
     Button,
     useDisclosure,
+    Link,
 } from '@chakra-ui/react'
 const Blog = () => {
     const [list, setList] = useState([]);
@@ -56,6 +57,7 @@ const Blog = () => {
 
     return (
         <div>
+            <Link href='/'>Back to Home</Link>
             {renderItems}
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />

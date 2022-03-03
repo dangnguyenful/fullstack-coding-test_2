@@ -1,3 +1,4 @@
+import { Link } from "@chakra-ui/react";
 import { firebaseConfig } from "config/firebase";
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -37,6 +38,7 @@ const SignIn = () => {
   }
   return (
     <div>
+      <Link href='/'>Back to Home</Link>
       <form onSubmit={e => signIn(e)}>
         <div className="container-signup">
           <h1>Sign in</h1>
